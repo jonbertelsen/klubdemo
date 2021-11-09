@@ -120,8 +120,14 @@ public class Medlem
 
     public long beregnAlder()
     {
-        Period period = Period.between(fødselsdato, LocalDate.now());
-        return period.getYears();
+        if (fødselsdato != null)
+        {
+            Period period = Period.between(fødselsdato, LocalDate.now());
+            return period.getYears();
+        } else
+        {
+            return 0;
+        }
     }
 
     public int beregnKontingent()
