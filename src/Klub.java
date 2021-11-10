@@ -19,6 +19,15 @@ public class Klub
     private final String FØDSELSDATO = "FØDSELSDATO";
     private final String TLF = "TLF";
     private final String KØN = "KØN";
+    private final String INDBETALINGERSTART = "INDBETALINGERSTART";
+    private final String INDBETALINGERSLUT = "INDBETALINGERSLUT";
+    private final String INDBETALINGSTART = "INDBETALINGSTART";
+    private final String INDBETALINGSLUT = "INDBETALINGSLUT";
+    private final String BELØB = "BELØB";
+    private final String INDBETALINGSDATO = "INDBETALINGSDATO";
+
+
+
 
     // Attributter
 
@@ -97,6 +106,21 @@ public class Klub
                 writer.println(medlem.getTlf());
                 writer.println(KØN);
                 writer.println(medlem.getKøn());
+                // Gem indbetalinger (hvis der nogle)
+                if (medlem.getIndbetalingList().size() > 0)
+                {
+                    writer.println(INDBETALINGERSTART);
+                    for (Indbetaling indbetaling : medlem.getIndbetalingList())
+                    {
+                        writer.println(INDBETALINGSTART);
+                        writer.println(BELØB);
+                        writer.println(indbetaling.getBeløb());
+                        writer.println(INDBETALINGSDATO);
+                        writer.println(indbetaling.getDato());
+                        writer.println(INDBETALINGSLUT);
+                    }
+                    writer.println(INDBETALINGERSLUT);
+                }
 ;               writer.println(END);
             }
 
@@ -141,6 +165,9 @@ public class Klub
                     case KØN:
                         token = KØN;
                         break;
+                    case INDBETALINGERSTART:
+                        indlæsIndbetalinger(scanner, medlem.getIndbetalingList());
+                        break;
                     case END:
                         medlemList.add(medlem);
                         break;
@@ -171,6 +198,52 @@ public class Klub
         {
             e.printStackTrace();
         }
+
+    }
+
+    private void indlæsIndbetalinger(Scanner scanner, List<Indbetaling> indbetalingList)
+    {
+        String line = "";
+        String token = "";
+        Indbetaling indbetaling = null;
+        boolean flereIndbetalinger = true;
+
+        while (flereIndbetalinger && scanner.hasNext())
+        {
+            line = scanner.nextLine();
+
+            switch (line)
+            {
+                case INDBETALINGSTART:
+                    indbetaling = new Indbetaling();
+                    token = INDBETALINGSTART;
+                    break;
+                case BELØB:
+                    token = BELØB;
+                    break;
+                case INDBETALINGSDATO:
+                    token = INDBETALINGSDATO;
+                    break;
+                case INDBETALINGSLUT:
+                    token = INDBETALINGSLUT;
+                    indbetalingList.add(indbetaling);
+                    break;
+                case INDBETALINGERSLUT:
+                    flereIndbetalinger = false;
+                    break;
+                default:
+                    switch (token)
+                    {
+                        case BELØB:
+                            indbetaling.setBeløb(Integer.parseInt(line));
+                            break;
+                        case INDBETALINGSDATO:
+                            indbetaling.setDato(LocalDate.parse(line));
+                            break;
+                    }
+            }
+        }
+
 
     }
 }

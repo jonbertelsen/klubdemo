@@ -11,6 +11,8 @@ public class Medlem
     private LocalDate fødselsdato;
     private String tlf;
     private String køn;
+
+
     private List<Indbetaling> indbetalingList = new ArrayList<>();
     //endregion
 
@@ -91,6 +93,12 @@ public class Medlem
             this.køn = "Udefineret";
         }
     }
+
+    public List<Indbetaling> getIndbetalingList()
+    {
+        return indbetalingList;
+    }
+
     //endregion
 
     //region toString og lignende autogenerede metoder

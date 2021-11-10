@@ -13,7 +13,22 @@ public class Indbetaling
         this.dato = LocalDate.now();
     }
 
+    public Indbetaling()
+    {
+        this.dato = LocalDate.now();
+    }
+
     // Gettere og Settere
+
+    public void setBeløb(int beløb)
+    {
+        this.beløb = beløb;
+    }
+
+    public void setDato(LocalDate dato)
+    {
+        this.dato = dato;
+    }
 
     public int getBeløb()
     {
