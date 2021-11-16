@@ -26,9 +26,6 @@ public class Klub
     private final String BELØB = "BELØB";
     private final String INDBETALINGSDATO = "INDBETALINGSDATO";
 
-
-
-
     // Attributter
 
     private String navn;
@@ -87,6 +84,11 @@ public class Klub
             }
         }
         return null;
+    }
+
+    public void fjernMedlem(Medlem medlem)
+    {
+        medlemList.remove(medlem);
     }
 
     public void gemMedlemmer(String filnavn)

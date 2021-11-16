@@ -12,7 +12,6 @@ public class Medlem
     private String tlf;
     private String køn;
 
-
     private List<Indbetaling> indbetalingList = new ArrayList<>();
     //endregion
 
