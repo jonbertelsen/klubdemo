@@ -1,0 +1,8 @@
+menuheader,---------------- Main menu -----------------------------------------------------------
+menupunkter,| 1. Show members | 2. Create new member | 3. Show payments | 4. Change language | 5. Show number of members | 6. Remove member | 7. Deposit payment | 8. Edit member |  9. Exit |
+menuvalg,Choose (1-9):
+sprogvalg,Pick your language (1 for danish or 2 for english):
+antalmedlemmer,Number of members:
+indtastmedlemsnummer,Enter member ID:
+medlemikkefundet,Member ID %d doesn't exist");
+indtastbeløb,Enter amount:

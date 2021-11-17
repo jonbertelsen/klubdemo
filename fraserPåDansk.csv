@@ -1,0 +1,8 @@
+menuheader,---------------- Hovedmenu -----------------------------------------------------------
+menupunkter,| 1. Vis medlemmer | 2. Opret nyt medlem | 3. Vis betalingsoversigt | 4. Skrift sprog | 5. Vis antal medlemmer |\r\n 6. Fjern medlem | 7. Indsæt betaling | 8. Rediger medlem | 9. Afslut |
+menuvalg,Vælg (1-9): 
+sprogvalg,Vælg sprog (1 for dansk eller 2 for engelsk): 
+antalmedlemmer,Antal medlemmer: 
+indtastmedlemsnummer,Indtast medlemsnummer: 
+medlemikkefundet,Medlemsnummer %d findes ikke
+indtastbeløb,Indtast beløb: 
