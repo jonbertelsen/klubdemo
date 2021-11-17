@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Tools
 {
-    public static OrdbogsAdaptor ordbog = new OrdbogsAdaptor();
+    public static OrdbogsAdapter ordbog = new OrdbogsAdapter();
 
     public static Map<String, String> indlæsOrdbog(String filnavn)
     {

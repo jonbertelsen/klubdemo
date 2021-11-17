@@ -1,8 +1,8 @@
-public class OrdbogsAdaptor implements IOrdbog
+public class OrdbogsAdapter implements IOrdbog
 {
     IOrdbog ordbog;
 
-    public OrdbogsAdaptor()
+    public OrdbogsAdapter()
     {
         this.ordbog = new OrdbogDansk();
     }
